@@ -5,6 +5,11 @@ resource "aws_instance" "bastion" {
   instance_type = "${ var.instance-type }"
   key_name = "${ var.key-name }"
 
+  root_block_device {
+    volume_size = 124
+    volume_type = "gp2"
+  }
+
   source_dest_check = true
   subnet_id = "${ var.subnet-id }"
 
